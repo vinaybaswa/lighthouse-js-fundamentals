@@ -1,11 +1,13 @@
 var donuts = ["jelly donut", "chocolate donut", "glazed donut"];
 
+// forEach method
 donuts.forEach((donut) => {
   donut += " hole";
   donut = donut.toUpperCase();
   console.log(donut);
 });
 
+//map Method
 const donutHoles = donuts.map((donut) => {
   donut += " hole";
   donut = donut.toUpperCase();
@@ -77,8 +79,19 @@ const numbers = [
   [76, 7, 9, 6, 3, 73, 77, 100, 56, 100]
 ];
 
+numbers.forEach((row) => {
+  row.forEach((number, index) => {
+    if (row[index] % 2 === 0) {
+      row[index] = "even";
+    } else {
+      row[index] = "odd";
+    }
+  })
+})
 
+console.log(numbers);
 
+// same as above with for loops
 for (let row = 0; row < numbers.length; row++) {
   for (let column = 0; column < numbers[row].length; column++) {
     if (numbers[row][column] % 2 === 0) {
