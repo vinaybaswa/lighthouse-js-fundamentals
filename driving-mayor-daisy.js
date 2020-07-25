@@ -14,6 +14,7 @@ const cars = [
 ];
 
 
+
 const carPassing = function (cars, speed) {
   cars.push({
     time: Date.now(),
@@ -22,4 +23,5 @@ const carPassing = function (cars, speed) {
   return cars;
 };
 
-console.log(carPassing(cars, 55));
+const speed = 55;
+console.log(carPassing(cars, speed));
