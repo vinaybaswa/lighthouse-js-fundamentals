@@ -1,40 +1,30 @@
 const whereCanIPark = function (spots, vehicle) {
-  const availableSpot = [];
-  if (vehicle === "regular") {
-    spots.forEach((element, rowNum) => {
-      element.forEach((spot, columnNum) => {
+  const availableSpot = []
+  spots.forEach((element, rowNum) => {
+    element.forEach((spot, columnNum) => {
+      if (vehicle === "regular") {
         if (spot === "R") {
-          availableSpot.push(columnNum);
-          availableSpot.push(rowNum);
+          availableSpot.push(columnNum, rowNum);
         }
-      });
-    });
-  } else if (vehicle === "small") {
-    spots.forEach((element, rowNum) => {
-      element.forEach((spot, columnNum) => {
+      } else if (vehicle === "small") {
         if (spot === "S" || spot === "R") {
-          availableSpot.push(columnNum);
-          availableSpot.push(rowNum);
+          availableSpot.push(columnNum, rowNum);
         }
-      });
-    });
-  } else if (vehicle === "motorcycle") {
-    spots.forEach((element, rowNum) => {
-      element.forEach((spot, columnNum) => {
+      } else if (vehicle === "motorcycle") {
         if (spot === "M" || spot === "S" || spot === "R") {
-          availableSpot.push(columnNum);
-          availableSpot.push(rowNum);
+          availableSpot.push(columnNum, rowNum);
         }
-      });
+      }
     });
-  }
+  });
   const otherAvailableSpots = availableSpot.splice(2, availableSpot.length - 2);
-  if (availableSpot[0] === undefined) {
-    return false;
-  } else {
+  if (availableSpot[0] !== undefined) {
     return availableSpot;
+  } else {
+    return false;
   }
 };
+
 
 // TEST
 console.log(whereCanIPark(
