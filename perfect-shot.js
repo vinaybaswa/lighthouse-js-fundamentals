@@ -2,11 +2,7 @@ const finalPosition = function (moves) {
   let hMoves = [];
   let vMoves = [];
   for (const move of moves) {
-    if (move === "east" || move === "west") {
-      hMoves.push(move);
-    } else {
-      vMoves.push(move);
-    }
+    (move === "east" || move === "west") ? hMoves.push(move) : vMoves.push(move);
   }
 
   for (let i = 0; i < hMoves.length; i++) {
